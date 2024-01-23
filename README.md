@@ -19,7 +19,7 @@ Versión: 23 de Enero de 2024
 
 Para realizar la práctica el alumno deberá tener instalado en su ordenador:
 - Herramienta GIT para gestión de repositorios [Github](https://git-scm.com/downloads)
-- Entorno de ejecución de javascript [NodeJS](https://nodejs.org/es/download/) versión 18.
+- Entorno de ejecución de javascript [NodeJS](https://nodejs.org/es/download/) versión 20.
 
 ## 3. Descripción de la práctica
 
