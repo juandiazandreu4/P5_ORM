@@ -10,7 +10,7 @@
     "githubURL": "CORE-UPM/P5_ORM",
     "serverUrl": "https://aat.dit.upm.es/",
     "courseId": "395",
-    "assignmentId": "50541"
+    "assignmentId": "452"
 },
   "scripts": {
     "start": "node src/app.js"
