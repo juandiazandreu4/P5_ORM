@@ -9,11 +9,27 @@ module.exports = sequelize => {
     }
 
     // Inicialize el modelo Doctor aqui
-    Doctor.init(
+    Doctor.init({
 
-        // Rellene aqui ...
+        name: {
+            type: DataTypes.STRING,
+            validate: {notEmpty: {msg: "Name must not be empty"}},
+        },
 
-    )
+        surname: {
+            type: DataTypes.STRING,
+            validate: {notEmpty: {msg: "Surname must not be empty"}},
+        },
+
+        speciality: {
+            type: DataTypes.STRING,
+            validate: {notEmpty: {msg: "speciality must not be empty"}},
+        },
+        
+    },
+    {sequelize}
+
+    );
 
     return Doctor;
 };
