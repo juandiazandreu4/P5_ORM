@@ -26,8 +26,8 @@ module.exports = sequelize => {
             validate: {notEmpty: {msg: "DNI must not be empty"}},
         },
         
-    },
-    {sequelize}
+        },
+        {sequelize}
     )
 
     return Patient;

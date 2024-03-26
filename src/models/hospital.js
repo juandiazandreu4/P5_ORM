@@ -20,8 +20,8 @@ module.exports = sequelize => {
 			validate: {notEmpty: {msg: "city must not be empty"}},
 		},
 		
-	},
-	{sequelize}
+		},
+		{sequelize}
 	);
 
 	return Hospital;

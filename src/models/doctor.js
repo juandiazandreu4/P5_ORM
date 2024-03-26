@@ -26,8 +26,8 @@ module.exports = sequelize => {
             validate: {notEmpty: {msg: "speciality must not be empty"}},
         },
         
-    },
-    {sequelize}
+        },
+        {sequelize}
 
     );
 
