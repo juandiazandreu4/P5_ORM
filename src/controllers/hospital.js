@@ -18,11 +18,21 @@ exports.create = async function (name, city) {
 
 // Devuelve todos los hospitales
 exports.index = async function () {
-    
+    let hospitales = await models.hospital.findAll();
+    return hospitales;
 }
 
 // Filtra los hospitales por ciudad
 exports.indexByCity = async function (city) {
-    // Rellene aqui ...
+    try{
+        let hospitals = await models.hospital.findAll({
+            where: {
+                city: city
+                },
+        });
+        return hospitals;
+    } catch (error) {
+        console.error('Error', error);
+    }
 }
 
