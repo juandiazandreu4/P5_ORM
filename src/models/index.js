@@ -10,8 +10,6 @@ const sequelize = new Seque-lize("sqlite:db.sqlite", {logging:false});
 
 // Import Models
 
-// Rellene aqui ...
-
 
 // Relationships
 
