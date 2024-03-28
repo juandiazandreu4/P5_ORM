@@ -52,8 +52,19 @@ exports.update = async function(patientId, name, surname, dni) {
 
 // Borra un paciente
 exports.delete = async function (patientId) {
-    // Rellene aqui ...
+    try {
+
+        await patient.destroy({
+            where: {
+              id: patientId
+            }
+          })
+
+    } catch (error) {
+        console.error('Error', error);
+    }
 }
+
 
 
 // Buscar pacientes de un hospital ordenados por el nombre (de la A a la Z)
