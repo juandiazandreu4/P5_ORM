@@ -2,12 +2,18 @@ const {models} = require('../models');
 
 // Muestra la informacion de un paciente
 exports.read = async function (patientId) {
-    // Rellene aqui ...
+    let patient = await models.patient.findByPk(patientId);
+    return patient;
 }
 
 // Crea un paciente en un hospital
 exports.create = async function (hospitalId, name, surname, dni) {
-    // Rellene aqui ...
+    let patient = await Post.patient({
+        name: name,
+        surname: surname,
+        dni: dni,
+        hospitalId: hospitalId
+    });
 }
 
 // Actualiza un paciente
