@@ -14,6 +14,8 @@ const sequelize = new Seque-lize("sqlite:db.sqlite", {logging:false});
 
 
 // Relationships
+
+//hospital-paciente
 hospital.hasMany(patient, {
     as: 'patient',
     foreignKey: 'hospitalId'
@@ -22,6 +24,21 @@ hospital.hasMany(patient, {
 patient.belongsTo(hospital, {
     as: 'hospital',
     foreignKey: 'hospitalId'
+});
+
+//doctor-paciente
+doctor.belongsToMany(patient, {
+    as: 'patient',
+    foreignKey: 'doctorId',
+    otherKey: 'patientId',
+    through: 'doctor_patient'
+});
+
+patient.belongsToMany(doctor, {
+    as: 'doctor',
+    foreignKey: 'patientId',
+    otherKey: 'doctorId',
+    through: 'doctor_patient'
 });
 
 
