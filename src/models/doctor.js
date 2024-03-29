@@ -24,7 +24,7 @@ module.exports = sequelize => {
         speciality: {
             type: DataTypes.STRING,
             validate: {notEmpty: {msg: "speciality must not be empty"}},
-        },
+        }
         
         },
         {sequelize}
