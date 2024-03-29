@@ -31,7 +31,7 @@ exports.create = async function (hospitalId, name, surname, dni) {
 exports.update = async function(patientId, name, surname, dni) {
     try {
 
-        const patient = await Patient.findByPk(patientId);
+        const patient = await models.patient.findByPk(patientId);
 
         if (!patient) {
             throw new Error('No se ha encontrado al paciente');
@@ -54,11 +54,10 @@ exports.update = async function(patientId, name, surname, dni) {
 exports.delete = async function (patientId) {
     try {
 
-        await patient.destroy({
+        await models.patient.destroy({
             where: {
               id: patientId
-            }
-          })
+        }})
 
     } catch (error) {
         console.error('Error', error);
@@ -79,7 +78,7 @@ exports.indexByHospital = async function (hospitalId) {
                     ['name', 'DESC']
                 ],
             });
-            return pacientes;
+            return patients;
         } catch (error) {
             console.error('Error', error);
         }
