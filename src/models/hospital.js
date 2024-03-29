@@ -18,7 +18,7 @@ module.exports = sequelize => {
 		city: {
 			type: DataTypes.STRING,
 			validate: {notEmpty: {msg: "city must not be empty"}},
-		},
+		}
 		
 		},
 		{sequelize}
