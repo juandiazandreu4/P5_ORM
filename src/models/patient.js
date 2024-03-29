@@ -24,7 +24,7 @@ module.exports = sequelize => {
         dni: {
             type: DataTypes.STRING,
             validate: {notEmpty: {msg: "DNI must not be empty"}},
-        },
+        }
         
         },
         {sequelize}

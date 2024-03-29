@@ -9,33 +9,33 @@ const sequelize = new Sequelize("sqlite:db.sqlite", {logging:false});
 
 
 // Import Models
-const patient = require('./patient', Sequelize.DataTypes);
-const hospital = require('./hospital', Sequelize.DataTypes);
-const doctor = require('./doctor', Sequelize.DataTypes);
-
+const Patient = require('./patient')(sequelize, Sequelize.DataTypes);
+const Hospital = require('./hospital')(sequelize, Sequelize.DataTypes);
+const Doctor = require('./doctor')(sequelize, Sequelize.DataTypes);
 // Relationships
 
 //hospital-paciente
-hospital.hasMany(patient, {
-    as: 'patient',
+Hospital.hasMany(Patient, {
+    as: 'patients',
     foreignKey: 'hospitalId'
 });
 
-patient.belongsTo(hospital, {
+Patient.belongsTo(Hospital, {
     as: 'hospital',
     foreignKey: 'hospitalId'
 });
 
+
 //doctor-paciente
-doctor.belongsToMany(patient, {
-    as: 'patient',
+Doctor.belongsToMany(Patient, {
+    as: 'patients',
     foreignKey: 'doctorId',
     otherKey: 'patientId',
     through: 'doctor_patient'
 });
 
-patient.belongsToMany(doctor, {
-    as: 'doctor',
+Patient.belongsToMany(Doctor, {
+    as: 'doctors',
     foreignKey: 'patientId',
     otherKey: 'doctorId',
     through: 'doctor_patient'
