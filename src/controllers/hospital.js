@@ -8,7 +8,7 @@ exports.create = async function (name, city) {
             city: city
         });
         
-        hospital.save();
+        await hospital.save();
 
         return hospital;
 
