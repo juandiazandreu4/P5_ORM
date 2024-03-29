@@ -9,7 +9,9 @@ const sequelize = new Seque-lize("sqlite:db.sqlite", {logging:false});
 
 
 // Import Models
-
+const patient = require('./patient')(sequelize, sequelize.datatypes);
+const hospital = require('./hospital')(sequelize, sequelize.datatypes);
+const doctor = require('./doctor')(sequelize, sequelize.datatypes);
 
 // Relationships
 
