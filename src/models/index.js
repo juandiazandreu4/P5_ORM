@@ -1,17 +1,17 @@
 const Sequelize = require('sequelize');
-const doctor = require('./doctor');
-const hospital = require('./hospital');
-const patient = require('./patient');
+//const doctor = require('./doctor');
+//const hospital = require('./hospital');
+//const patient = require('./patient');
 
 const url = process.env.DATABASE_URL || "sqlite:p5.sqlite";
 
-const sequelize = new Seque-lize("sqlite:db.sqlite", {logging:false});
+const sequelize = new Sequelize("sqlite:db.sqlite", {logging:false});
 
 
 // Import Models
-const patient = require('./patient')(sequelize, sequelize.datatypes);
-const hospital = require('./hospital')(sequelize, sequelize.datatypes);
-const doctor = require('./doctor')(sequelize, sequelize.datatypes);
+const patient = require('./patient', Sequelize.DataTypes);
+const hospital = require('./hospital', Sequelize.DataTypes);
+const doctor = require('./doctor', Sequelize.DataTypes);
 
 // Relationships
 

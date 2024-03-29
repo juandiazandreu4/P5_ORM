@@ -10,7 +10,7 @@ exports.create = async function (name, surname, speciality) {
             speciality: speciality,
         });
         
-        doctor.save();
+        await doctor.save();
 
         return doctor;
 
@@ -26,7 +26,7 @@ exports.assignDoctor = async function (patientId, doctorId) {
     let doctor = await models.doctor.findByPk(doctorId);
     let patient = await models.patient.findByPk(patientId);
     
-    patient = await patient.addDoctor(doctor); //de donde sale esa funcion?
+    patient = await patient.addDoctor(doctor); //funcion que crea sequelize
 
     return patient;
 
@@ -34,6 +34,7 @@ exports.assignDoctor = async function (patientId, doctorId) {
 
 // Muestra los medicos de un paciente
 exports.indexByPatient = async function (patientId) {
+    
     let patient = await models.patient.findByPk(patientId);
     let doctors = await patient.getDoctors(); //de donde sale esa funcion?
 
